@@ -1,10 +1,12 @@
 from flask import Flask, request, jsonify
+from flask_cors import CORS
 import requests
 import os
 from dotenv import load_dotenv
 
 load_dotenv()
 app = Flask(__name__)
+CORS(app)
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 
 @app.route("/generate", methods=["POST"])
